@@ -12,6 +12,9 @@
 		E9F0F833298C451D00935A4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F832298C451D00935A4C /* ViewController.swift */; };
 		E9F0F838298C451E00935A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9F0F837298C451E00935A4C /* Assets.xcassets */; };
 		E9F0F83B298C451E00935A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9F0F839298C451E00935A4C /* LaunchScreen.storyboard */; };
+		E9F0F848298C546200935A4C /* SFProDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9F0F847298C546200935A4C /* SFProDisplay-Bold.otf */; };
+		E9F0F84A298C546900935A4C /* SFProDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9F0F849298C546800935A4C /* SFProDisplay-Medium.otf */; };
+		E9F0F84C298C546E00935A4C /* SFProDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9F0F84B298C546E00935A4C /* SFProDisplay-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		E9F0F837298C451E00935A4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9F0F83A298C451E00935A4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9F0F83C298C451E00935A4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9F0F847298C546200935A4C /* SFProDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.otf"; sourceTree = "<group>"; };
+		E9F0F849298C546800935A4C /* SFProDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.otf"; sourceTree = "<group>"; };
+		E9F0F84B298C546E00935A4C /* SFProDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +50,6 @@
 				DF28C28D09AF3D8E91F3F84A /* Pods-SurfTeamTestTask.debug.xcconfig */,
 				D7FD7BFF7677B582A031BFB4 /* Pods-SurfTeamTestTask.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -79,6 +84,7 @@
 			children = (
 				E9F0F842298C4DAC00935A4C /* Applications */,
 				E9F0F843298C4DC400935A4C /* ViewController */,
+				E9F0F846298C545500935A4C /* Fonts */,
 				E9F0F844298C4EA900935A4C /* SupportingFiles */,
 			);
 			path = SurfTeamTestTask;
@@ -116,6 +122,16 @@
 				E9F0F837298C451E00935A4C /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		E9F0F846298C545500935A4C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E9F0F847298C546200935A4C /* SFProDisplay-Bold.otf */,
+				E9F0F849298C546800935A4C /* SFProDisplay-Medium.otf */,
+				E9F0F84B298C546E00935A4C /* SFProDisplay-Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +194,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9F0F84A298C546900935A4C /* SFProDisplay-Medium.otf in Resources */,
+				E9F0F848298C546200935A4C /* SFProDisplay-Bold.otf in Resources */,
 				E9F0F83B298C451E00935A4C /* LaunchScreen.storyboard in Resources */,
+				E9F0F84C298C546E00935A4C /* SFProDisplay-Regular.otf in Resources */,
 				E9F0F838298C451E00935A4C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
