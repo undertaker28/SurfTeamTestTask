@@ -6,5 +6,5 @@
 //
 
 struct Directions {
-    static let directions = ["IOS", "Android", "QA", "Flutter", "Design", "PM", "Java", "JavaScript", ".NET", "DevOps"]
+    static let directions = ["IOS", "Android", "Design", "Flutter", "QA", "PM", "Java", "JavaScript", ".NET", "DevOps"]
 }

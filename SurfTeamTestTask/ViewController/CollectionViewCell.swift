@@ -8,30 +8,43 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-    lazy var titleLabel: UILabel = {
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                directionLabel.textColor = .white
+                directionLabel.backgroundColor = UIColor(named: "Black")
+            } else {
+                directionLabel.textColor = UIColor(named: "Black")
+                directionLabel.backgroundColor = UIColor(named: "Chip")
+            }
+        }
+    }
+
+    lazy var directionLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "SFProDisplay-Bold", size: 24)
-        label.textColor = UIColor(named: "TitleColor")
-        label.text = "Стажировка в Surf"
+        label.backgroundColor = UIColor(named: "Chip")
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 12
+        label.textAlignment = .center
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 14)
+        label.textColor = UIColor(named: "Black")
         label.numberOfLines = 0
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(titleLabel)
-        contentView.layer.cornerRadius = 6
-        print(titleLabel.text)
+        addSubview(directionLabel)
         makeConstraints()
     }
     
-    private func makeConstraints() {
-        titleLabel.snp.makeConstraints {
-            $0.leading.equalTo(contentView)
-        }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func makeConstraints() {
+        directionLabel.snp.makeConstraints {
+            $0.leading.trailing.bottom.top.equalToSuperview()
+        }
     }
 }

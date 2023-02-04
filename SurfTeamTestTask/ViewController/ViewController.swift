@@ -8,14 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         assignbackground()
         configureSheet()
     }
     
-    func assignbackground(){
+    func assignbackground() {
         let background = UIImage(named: "Background.png")
         
         var imageView : UIImageView!
@@ -36,7 +35,7 @@ class ViewController: UIViewController {
         if let sheet = navVC.sheetPresentationController {
             sheet.preferredCornerRadius = 32
             sheet.detents = [.custom(resolver: { context in
-                0.4 * context.maximumDetentValue
+                0.42 * context.maximumDetentValue
             }), .large()]
             sheet.largestUndimmedDetentIdentifier = .large
         }

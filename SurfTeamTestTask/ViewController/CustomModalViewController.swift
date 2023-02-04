@@ -9,6 +9,18 @@ import UIKit
 import SnapKit
 
 class CustomModalViewController: UIViewController {
+    let directions = Directions.directions
+
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 12
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.allowsMultipleSelection = true
+        return collectionView
+    }()
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "SFProDisplay-Bold", size: 24)
@@ -77,6 +89,12 @@ class CustomModalViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(stackViewOfTitleAndDescriptionLabels)
         view.addSubview(stackViewOfQuestionLabelAndSendRequestButton)
+        view.addSubview(collectionView)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         makeConstraints()
     }
@@ -89,11 +107,48 @@ class CustomModalViewController: UIViewController {
             $0.trailing.equalToSuperview().offset(-20)
         }
         
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(stackViewOfTitleAndDescriptionLabels.snp.bottom).offset(12)
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(44)
+        }
+        
         stackViewOfQuestionLabelAndSendRequestButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().offset(-58)
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
         }
+    }
+}
+
+extension CustomModalViewController: UICollectionViewDelegate {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return directions.count
+    }
+}
+
+extension CustomModalViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath)
+        guard let cell = cell as? CollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.directionLabel.text = directions[indexPath.row]
+        
+        return cell
+    }
+}
+
+extension CustomModalViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = 53 + directions[indexPath.row].count * 6
+        return CGSize(width: width, height: 44)
     }
 }
