@@ -18,6 +18,7 @@ class CustomModalViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.allowsMultipleSelection = true
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
 
@@ -87,16 +88,16 @@ class CustomModalViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        addSubviews()
+        setupCollectionView()
+        makeConstraints()
+    }
+    
+    private func addSubviews() {
         view.addSubview(stackViewOfTitleAndDescriptionLabels)
         view.addSubview(stackViewOfQuestionLabelAndSendRequestButton)
         view.addSubview(collectionView)
-        
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        makeConstraints()
     }
     
     private func makeConstraints() {
@@ -121,6 +122,13 @@ class CustomModalViewController: UIViewController {
             $0.trailing.equalToSuperview().offset(-20)
         }
     }
+    
+    private func setupCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+    }
 }
 
 extension CustomModalViewController: UICollectionViewDelegate {
@@ -129,7 +137,7 @@ extension CustomModalViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return directions.count
+        return directions.count * 2
     }
 }
 
@@ -139,16 +147,36 @@ extension CustomModalViewController: UICollectionViewDataSource {
         guard let cell = cell as? CollectionViewCell else {
             return UICollectionViewCell()
         }
-        
-        cell.directionLabel.text = directions[indexPath.row]
+
+        var index = indexPath.item
+        if index > directions.count - 1 {
+            index -= directions.count
+        }
+        cell.directionLabel.text = directions[index % directions.count]
         
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        var offset = collectionView.contentOffset
+        let width = collectionView.contentSize.width
+        if offset.x < width / 4 {
+            offset.x += width / 2
+            collectionView.setContentOffset(offset, animated: false)
+        } else if offset.x > width / 4 * 3 {
+            offset.x -= width / 2
+            collectionView.setContentOffset(offset, animated: false)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.left, animated: true)
     }
 }
 
 extension CustomModalViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = 53 + directions[indexPath.row].count * 6
+        let width = 53 + directions[indexPath.row % directions.count].count * 6
         return CGSize(width: width, height: 44)
     }
 }
