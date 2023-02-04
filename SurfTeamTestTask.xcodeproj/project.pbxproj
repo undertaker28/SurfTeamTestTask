@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		761D48CF11CB0D14AA885A41 /* Pods_SurfTeamTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77814958F6995AD6A9F2345A /* Pods_SurfTeamTestTask.framework */; };
 		E9D2AC98298C661C00E1CB54 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D2AC97298C661C00E1CB54 /* Colors.xcassets */; };
+		E9D2AC9B298C7AEB00E1CB54 /* UIButton+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2AC9A298C7AEB00E1CB54 /* UIButton+Ex.swift */; };
+		E9D2AC9D298C807900E1CB54 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2AC9C298C807900E1CB54 /* CollectionViewCell.swift */; };
+		E9EA1D46298E9DB50059E512 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EA1D45298E9DB50059E512 /* Constants.swift */; };
 		E9F0F82F298C451D00935A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F82E298C451D00935A4C /* AppDelegate.swift */; };
 		E9F0F833298C451D00935A4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F0F832298C451D00935A4C /* ViewController.swift */; };
 		E9F0F838298C451E00935A4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9F0F837298C451E00935A4C /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 		D7FD7BFF7677B582A031BFB4 /* Pods-SurfTeamTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTeamTestTask.release.xcconfig"; path = "Target Support Files/Pods-SurfTeamTestTask/Pods-SurfTeamTestTask.release.xcconfig"; sourceTree = "<group>"; };
 		DF28C28D09AF3D8E91F3F84A /* Pods-SurfTeamTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTeamTestTask.debug.xcconfig"; path = "Target Support Files/Pods-SurfTeamTestTask/Pods-SurfTeamTestTask.debug.xcconfig"; sourceTree = "<group>"; };
 		E9D2AC97298C661C00E1CB54 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		E9D2AC9A298C7AEB00E1CB54 /* UIButton+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ex.swift"; sourceTree = "<group>"; };
+		E9D2AC9C298C807900E1CB54 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E9EA1D45298E9DB50059E512 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E9F0F82B298C451D00935A4C /* SurfTeamTestTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfTeamTestTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F0F82E298C451D00935A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9F0F832298C451D00935A4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +71,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E9D2AC99298C7ADF00E1CB54 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E9D2AC9A298C7AEB00E1CB54 /* UIButton+Ex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E9F0F822298C451D00935A4C = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +102,7 @@
 			children = (
 				E9F0F842298C4DAC00935A4C /* Applications */,
 				E9F0F843298C4DC400935A4C /* ViewController */,
+				E9D2AC99298C7ADF00E1CB54 /* Extensions */,
 				E9F0F846298C545500935A4C /* Fonts */,
 				E9F0F844298C4EA900935A4C /* SupportingFiles */,
 			);
@@ -107,6 +122,7 @@
 			children = (
 				E9F0F832298C451D00935A4C /* ViewController.swift */,
 				E9F0F84D298C567E00935A4C /* CustomModalViewController.swift */,
+				E9D2AC9C298C807900E1CB54 /* CollectionViewCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -117,6 +133,7 @@
 				E9F0F845298C4EB700935A4C /* Assets */,
 				E9F0F839298C451E00935A4C /* LaunchScreen.storyboard */,
 				E9F0F83C298C451E00935A4C /* Info.plist */,
+				E9EA1D45298E9DB50059E512 /* Constants.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -258,8 +275,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9D2AC9D298C807900E1CB54 /* CollectionViewCell.swift in Sources */,
 				E9F0F833298C451D00935A4C /* ViewController.swift in Sources */,
 				E9F0F82F298C451D00935A4C /* AppDelegate.swift in Sources */,
+				E9EA1D46298E9DB50059E512 /* Constants.swift in Sources */,
+				E9D2AC9B298C7AEB00E1CB54 /* UIButton+Ex.swift in Sources */,
 				E9F0F84E298C567E00935A4C /* CustomModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

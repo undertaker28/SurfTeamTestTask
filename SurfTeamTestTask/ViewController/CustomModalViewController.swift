@@ -27,24 +27,70 @@ class CustomModalViewController: UIViewController {
         return label
     }()
     
-    private lazy var stackView: UIStackView = {
+    private lazy var questionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
+        label.textColor = UIColor(named: "DescriptionColor")
+        label.text = "Хочешь к нам?"
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var sendRequestButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Отправить заявку", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor(named: "Black")
+        button.layer.cornerRadius = 30
+        button.contentEdgeInsets = UIEdgeInsets(top: 20, left: 44, bottom: 20, right: 44)
+        button.clipsToBounds = true
+        button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 16)
+        button.addTarget(self, action: #selector(sendRequest), for: .touchUpInside)
+        button.addPressAnimation()
+        return button
+    }()
+    
+    @objc private func sendRequest() {
+        let successAlert = UIAlertController(title: "Поздравляем!", message: "Ваша заявка успешно отправлена!", preferredStyle: .alert)
+        successAlert.addAction(UIAlertAction(title: "Закрыть", style: .cancel))
+        present(successAlert, animated: true)
+    }
+    
+    private lazy var stackViewOfTitleAndDescriptionLabels: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, descriptionLabel])
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .leading
         return stackView
     }()
+    
+    private lazy var stackViewOfQuestionLabelAndSendRequestButton: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [questionLabel, sendRequestButton])
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.spacing = 24
+        stackView.alignment = .center
+        return stackView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(stackView)
+        view.addSubview(stackViewOfTitleAndDescriptionLabels)
+        view.addSubview(stackViewOfQuestionLabelAndSendRequestButton)
         view.backgroundColor = .white
         makeConstraints()
     }
     
     private func makeConstraints() {
-        stackView.snp.makeConstraints {
+        stackViewOfTitleAndDescriptionLabels.snp.makeConstraints {
             $0.top.equalToSuperview().offset(24)
+            $0.centerX.equalToSuperview()
+            $0.leading.equalToSuperview().offset(20)
+            $0.trailing.equalToSuperview().offset(-20)
+        }
+        
+        stackViewOfQuestionLabelAndSendRequestButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().offset(-58)
             $0.centerX.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
