@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class СarouselViewCell: UICollectionViewCell {
     static var identifier: String {
         String(describing: self)
     }
@@ -19,14 +19,14 @@ class CollectionViewCell: UICollectionViewCell {
                 directionLabel.backgroundColor = UIColor(named: "Black")
             } else {
                 directionLabel.textColor = UIColor(named: "Black")
-                directionLabel.backgroundColor = UIColor(named: "Chip")
+                directionLabel.backgroundColor = UIColor(named: "LightGray")
             }
         }
     }
 
     lazy var directionLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor(named: "Chip")
+        label.backgroundColor = UIColor(named: "LightGray")
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 12
         label.textAlignment = .center

@@ -30,17 +30,16 @@ class ViewController: UIViewController {
     }
     
     private func configureSheet() {
-        let vc = CustomModalViewController()
-        let navVC = UINavigationController(rootViewController: vc)
+        let customModalViewController = UINavigationController(rootViewController: CustomModalViewController())
         
-        navVC.isModalInPresentation = true
-        if let sheet = navVC.sheetPresentationController {
+        customModalViewController.isModalInPresentation = true
+        if let sheet = customModalViewController.sheetPresentationController {
             sheet.preferredCornerRadius = 32
             sheet.detents = [.custom(resolver: { context in
-                0.42 * context.maximumDetentValue
+                0.61 * context.maximumDetentValue
             }), .large()]
             sheet.largestUndimmedDetentIdentifier = .large
         }
-        navigationController?.present(navVC, animated: true)
+        navigationController?.present(customModalViewController, animated: true)
     }
 }

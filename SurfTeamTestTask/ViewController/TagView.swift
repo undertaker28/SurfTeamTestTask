@@ -10,7 +10,6 @@ import UIKit
 class TagView: UIView {
     lazy var directionLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = UIColor(named: "Chip")
         label.layer.masksToBounds = true
         label.textAlignment = .center
         label.font = UIFont(name: "SFProDisplay-Medium", size: 14)
@@ -23,17 +22,18 @@ class TagView: UIView {
     var selected: Bool = false {
         didSet {
             if selected {
+                backgroundColor = UIColor(named: "Black")
                 directionLabel.textColor = .white
-                directionLabel.backgroundColor = UIColor(named: "Black")
             } else {
+                backgroundColor = UIColor(named: "LightGray")
                 directionLabel.textColor = UIColor(named: "Black")
-                directionLabel.backgroundColor = UIColor(named: "Chip")
             }
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = UIColor(named: "LightGray")
         addSubview(directionLabel)
         makeConstraints()
         layer.cornerRadius = 12
@@ -48,10 +48,10 @@ class TagView: UIView {
     
     func makeConstraints() {
         directionLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(12)
+            $0.top.equalToSuperview().offset(14)
             $0.leading.equalToSuperview().offset(24)
             $0.trailing.equalToSuperview().offset(-24)
-            $0.bottom.equalToSuperview().offset(-12)
+            $0.bottom.equalToSuperview().offset(-14)
         }
     }
 

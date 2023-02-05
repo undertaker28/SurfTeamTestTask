@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		761D48CF11CB0D14AA885A41 /* Pods_SurfTeamTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77814958F6995AD6A9F2345A /* Pods_SurfTeamTestTask.framework */; };
 		E9051B8B298FC14000C7007B /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9051B8A298FC14000C7007B /* TagView.swift */; };
+		E9051B8D298FC6D500C7007B /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9051B8C298FC6D500C7007B /* TagsView.swift */; };
+		E9051B8F298FCEA900C7007B /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9051B8E298FCEA900C7007B /* String+Ex.swift */; };
+		E9051B91298FF70600C7007B /* СarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9051B90298FF70600C7007B /* СarouselView.swift */; };
 		E9D2AC98298C661C00E1CB54 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D2AC97298C661C00E1CB54 /* Colors.xcassets */; };
 		E9D2AC9B298C7AEB00E1CB54 /* UIButton+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2AC9A298C7AEB00E1CB54 /* UIButton+Ex.swift */; };
 		E9D2AC9D298C807900E1CB54 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D2AC9C298C807900E1CB54 /* CollectionViewCell.swift */; };
@@ -28,6 +31,9 @@
 		D7FD7BFF7677B582A031BFB4 /* Pods-SurfTeamTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTeamTestTask.release.xcconfig"; path = "Target Support Files/Pods-SurfTeamTestTask/Pods-SurfTeamTestTask.release.xcconfig"; sourceTree = "<group>"; };
 		DF28C28D09AF3D8E91F3F84A /* Pods-SurfTeamTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SurfTeamTestTask.debug.xcconfig"; path = "Target Support Files/Pods-SurfTeamTestTask/Pods-SurfTeamTestTask.debug.xcconfig"; sourceTree = "<group>"; };
 		E9051B8A298FC14000C7007B /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		E9051B8C298FC6D500C7007B /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		E9051B8E298FCEA900C7007B /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
+		E9051B90298FF70600C7007B /* СarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СarouselView.swift"; sourceTree = "<group>"; };
 		E9D2AC97298C661C00E1CB54 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		E9D2AC9A298C7AEB00E1CB54 /* UIButton+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ex.swift"; sourceTree = "<group>"; };
 		E9D2AC9C298C807900E1CB54 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				E9D2AC9A298C7AEB00E1CB54 /* UIButton+Ex.swift */,
+				E9051B8E298FCEA900C7007B /* String+Ex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -124,8 +131,10 @@
 			children = (
 				E9F0F832298C451D00935A4C /* ViewController.swift */,
 				E9F0F84D298C567E00935A4C /* CustomModalViewController.swift */,
+				E9051B90298FF70600C7007B /* СarouselView.swift */,
 				E9D2AC9C298C807900E1CB54 /* CollectionViewCell.swift */,
 				E9051B8A298FC14000C7007B /* TagView.swift */,
+				E9051B8C298FC6D500C7007B /* TagsView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -281,7 +290,10 @@
 				E9D2AC9D298C807900E1CB54 /* CollectionViewCell.swift in Sources */,
 				E9F0F833298C451D00935A4C /* ViewController.swift in Sources */,
 				E9F0F82F298C451D00935A4C /* AppDelegate.swift in Sources */,
+				E9051B8F298FCEA900C7007B /* String+Ex.swift in Sources */,
+				E9051B8D298FC6D500C7007B /* TagsView.swift in Sources */,
 				E9EA1D46298E9DB50059E512 /* Constants.swift in Sources */,
+				E9051B91298FF70600C7007B /* СarouselView.swift in Sources */,
 				E9051B8B298FC14000C7007B /* TagView.swift in Sources */,
 				E9D2AC9B298C7AEB00E1CB54 /* UIButton+Ex.swift in Sources */,
 				E9F0F84E298C567E00935A4C /* CustomModalViewController.swift in Sources */,
