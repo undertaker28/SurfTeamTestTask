@@ -8,23 +8,25 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView(frame: .zero)
+        imageView.image = UIImage(named: "Background.png")
+        imageView.contentMode = .scaleToFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        assignbackground()
+        view.addSubview(imageView)
+        makeConstraints()
         configureSheet()
     }
     
-    func assignbackground() {
-        let background = UIImage(named: "Background.png")
-        
-        var imageView : UIImageView!
-        imageView = UIImageView(frame: view.bounds)
-        imageView.contentMode =  UIView.ContentMode.scaleAspectFit
-        //imageView.clipsToBounds = true
-        imageView.image = background
-        //imageView.center = view.center
-        view.addSubview(imageView)
-        self.view.sendSubviewToBack(imageView)
+    private func makeConstraints() {
+        imageView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+        }
     }
     
     private func configureSheet() {

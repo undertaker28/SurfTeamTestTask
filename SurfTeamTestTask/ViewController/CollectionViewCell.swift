@@ -8,6 +8,10 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
+    static var identifier: String {
+        String(describing: self)
+    }
+
     override var isSelected: Bool {
         didSet {
             if isSelected {

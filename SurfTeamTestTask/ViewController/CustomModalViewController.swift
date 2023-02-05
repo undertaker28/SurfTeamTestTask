@@ -126,7 +126,7 @@ class CustomModalViewController: UIViewController {
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
+        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.identifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
     }
 }
@@ -143,7 +143,7 @@ extension CustomModalViewController: UICollectionViewDelegate {
 
 extension CustomModalViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.identifier, for: indexPath)
         guard let cell = cell as? CollectionViewCell else {
             return UICollectionViewCell()
         }
